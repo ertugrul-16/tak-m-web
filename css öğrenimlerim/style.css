@@ -1,0 +1,98 @@
+@import "text.css";
+body{
+    background-color: aquamarine;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+abbr:not([title="deneme2"]):not([class="test"]){
+    background-color: coral;
+}
+
+li:empty{
+    display: none;
+}
+
+
+
+
+input:invalid{
+    border-color: tomato;
+}
+
+
+input.input1:enabled{
+    background-color: green;
+}
+
+input.input1:disabled{
+    background-color: brown;
+}
+
+input.input2:optional{
+    background-color: green;
+}
+
+input.input2:required{
+    background-color: orange;
+}
+
+input.input3:read-only{
+    background-color: gray;
+}
+
+
+input.input3:read-write{
+    background-color: cornflowerblue;
+}
+
+
+p.input4:read-only{ /*sadece okunabilir */
+    background-color: darkkhaki;
+}
+
+p.input4:read-write{ /*sadece yazılabilir */
+    background-color: darkslategray;
+}
+
+.link1:active{ /* link e tıkladığında aktif olma efekti olarak sarı renk oluşur*/
+    background-color: yellow;
+}
+
+.link2:link{ /* ziyaret edilmemiş link ler kırmızı renk olsun burada bunu yaptık*/
+    color : red;
+}
+
+.link2:visited{
+    color : gray;
+}
+
+nav.link3 a:any-link{ /* href değeri olmayan a etiketli link haricinde bütün linkler etki eder */
+    background-color: lime;
+}
+
+
+p:target{ /* hangi p etiketine yönlendirilmiş ise ona göre görünüm uygulanır ve burada arka plan  rengi uygulandı*/
+    background-color: yellowgreen;
+}
+
+input:in-range{/* input sayı sistemi istenen aralıkta olursa eğer arka planı yeşil renk olsun */
+    background-color: green;
+}
+
+input:out-of-range{/* input eğer istenen aralıkta olmaz ise arka planı kırmızı renk olsun */
+background-color: red;
+}
+
+div.div1{
+    width: 300px;
+    height: 300px;
+    background-color: green;
+}
+
+.box5{
+    margin-top: 10px;
+}
