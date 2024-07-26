@@ -12,11 +12,12 @@ body {
     height: 100px;
     background-color: #3498db;
     color: white;
-    
+
     align-items: center;
     justify-content: center;
     transition: opacity 0.5s;
-    z-index: 1; /*en ön planda kalmasını sağlar*/
+    z-index: 1;
+    /*en ön planda kalmasını sağlar*/
 }
 
 .side {
@@ -35,7 +36,7 @@ body {
 
 .left {
     left: 0;
-} 
+}
 
 .right {
     right: 0;
@@ -50,54 +51,84 @@ body {
     text-align: left;
 }
 
-div.ek-yönerge{
+div.ek-yönerge {
     height: 80%;
     width: 100%;
     background-color: rgb(255, 0, 85);
 }
 
-div.categories{
+div.categories {
     height: 20%;
     width: 100%;
     background-color: rgb(255, 177, 85);
-    display : flex;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* menü kısımları burada yapıldı */
 
- .menu {
-            display: none;
-            background-color: rgb(255,255,255,0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid #ccc;
-            padding: 10px;
-            position: absolute;
-           width: 100vh;
-           height: 100vh;
-          
-        }
-        .menu-container {
-            position: relative;
-            display: inline-block;
-            transition: all 2s ease-in-out;
-        }
-        .menu-container:hover .menu {
-            display: block;
-        }
-        .menu-item {
-            padding: 5px 10px;
-            cursor: pointer;
-            color : black;
-            display: flex;
-            text-align: center;
-        }
-        .menu-item:hover {
-            font-size: 1.2em;
-            transition: all 0.5s;
+.menu {
+    display: none;
+    background-color: rgba(226, 226, 226, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;/* Dışarı taşmayı engelle */
+    
 
-        }
 
-        .menu-item::after{
-            font-size: 1em;
-            transition: all 0.5s;
-        }
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+    transition: all 2s ease-in-out;
+
+
+
+}
+
+.menu-container:hover .menu {
+    display: block;
+}
+
+.menu-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    text-align: center;
+
+}
+
+
+.left .menu {
+    left: 0; /* Sol menü için solda konumlandır */
+    right: auto; /* Sağ menü konumlandırmasını devre dışı bırak */
+}
+
+.right .menu {
+    right: 0; /* Sağ menü için s    ğda konumlandır */
+    left: auto; /* Sol menü konumlandırmasını devre dışı bırak */
+}
+
+
+.menu-item:hover {
+    font-size: 1.2em;
+    transition: all 0.5s;
+
+}
+
+.menu-item::after {
+    font-size: 1em;
+    transition: all 0.5s;
+}
+
+#menu1 {
+    margin-left: 30px;
+}
