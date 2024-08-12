@@ -1,0 +1,953 @@
+
+body {
+
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    padding: 0;
+    margin: 0;
+}
+
+.fade-out {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 25%;
+    background-color: transparent;
+    color: black;
+
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+    z-index: 1;
+    /*en ön planda kalmasını sağlar*/
+}
+
+.side {
+    position: fixed;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    background-color: transparent;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+
+
+.content {
+ 
+    width: 100%;
+    height: 100vh;
+    margin-top: 25%;
+    margin-right: 40px;
+    margin-left: 40px;
+    text-align: left;
+    z-index: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    align-items: stretch; /* Genişliği dış div'e göre ayarla */
+    justify-content: flex-start; /* İçerikleri yukarıdan başlat */
+    flex-grow: 1; /* Esnek büyüme */
+   
+}
+
+.content-sig-in{
+    width: 100%;
+    
+    margin-top: 1000px;
+    margin-right: 40px;
+    margin-left: 40px;
+    text-align: left;
+    z-index: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    align-items: stretch; /* Genişliği dış div'e göre ayarla */
+    justify-content: flex-start; /* İçerikleri yukarıdan başlat */
+    flex-grow: 1; /* Esnek büyüme */
+    background-color: transparent;
+}
+
+div.ek-yönerge {
+    height: 80%;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    /*iç içe div de margin verinde çökmeyi engeller*/
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+div.categories {
+    height: 20%;
+    width: 100%;
+    background-color: rgba(226, 226, 226, 0.3);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: -1;
+}
+
+/* menü kısımları burada yapıldı */
+
+.menu {
+    display: none;
+    background-color: rgba(226, 226, 226, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    justify-content: center;
+    /*yatay ortalama sağlar */
+    align-items: center;
+    /*dükey ortalama sağlar*/
+    overflow: hidden;
+    /* Dışarı taşmayı engelle */
+
+
+
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+    /*gösteren buydu*/
+    transition: all 2s ease-in-out;
+
+
+
+}
+
+.menu-container:hover .menu,
+.menu-container:hover .right {
+    display: block;
+    /*hem gösterir hem de sayfanın tamamını kaplar*/
+}
+
+.menu-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    text-align: center;
+    min-width: 100%;
+
+}
+
+
+.left .menu {
+    left: 0;
+    /* Sol menü için solda konumlandır */
+    right: auto;
+    /* Sağ menü konumlandırmasını devre dışı bırak */
+}
+
+.right .menu {
+    right: 0;
+    /* Sağ menü için s    ğda konumlandır */
+    left: auto;
+    /* Sol menü konumlandırmasını devre dışı bırak */
+}
+
+
+.menu-item:hover {
+    font-size: 1.2em;
+    transition: all 0.5s;
+
+}
+
+.menu-item::after {
+    font-size: 1em;
+    transition: all 0.5s;
+}
+
+#menu1 {
+    margin-left: 30px;
+}
+
+
+/* logomuzu yapalım */
+div.logo-div {
+    height: 70%;
+    width: 10%;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-size: 50;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    border-radius: 300%;
+    background-color: transparent;
+}
+
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 300%;
+}
+
+div.search-box {
+    width: 35%;
+    /* Genişliği ayarlayın, ekran boyutuna göre değiştirin */
+    height: 35%;
+    background-color: rgba(204, 204, 204,1);
+    margin-left: 20px;
+    /* Logo div'inin yanına yerleştirmek için boşluk ekleyin */
+    margin-left: 15%;
+    display: flex;
+    border-radius: 50px 50px;
+
+}
+
+.btn.btn-outline-success {
+    width: auto;
+    height: auto;
+    border-radius: 300px;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    /* Flexbox kullanımı */
+    align-items: center;
+    /* Dikey ortalama */
+    justify-content: center;
+    /* Yatay ortalama */
+    background-color: rgb(27, 201, 169);
+    /* Arka plan rengi */
+    color: white;
+    /* Metin rengi */
+    border: none;
+    /* Kenarlık yok */
+
+}
+
+
+.form-control.me-2 {
+    border-radius: 300px;
+    background-color: #ccc;
+    border: none;
+    outline: none;
+
+}
+
+.form-control.me-2:active {
+    /*ilk tıkladığımızda*/
+    background-color: #ccc;
+    outline: none !important;
+}
+
+.form-control.me-2:focus {
+    /*tıkladıktan sonra aktif kaldığı durum*/
+
+    background-color: #ccc;
+    outline: none;
+    /* Odaklandığında kenarlığı kaldır */
+    box-shadow: none;
+    /* Gölgeyi kaldır */
+    border: none;
+    /* Kenarlık yok */
+    color: black;
+    font-weight: 600;
+}
+
+
+div.sepet {
+    display: flex;
+    width: 20%;
+    height: 40%;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    justify-content: space-evenly;
+    z-index: 1;
+
+
+}
+
+div.sepetim {
+    width: 20%;
+    background-color: rgba(88, 82, 82, 0.5);
+    height: 100%;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+div.log-in {
+    width: 20%;
+    height: 20%;
+    background-color: rgba(88, 82, 82, 0.5);
+    height: 100%;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    /*içine yazılacakları taşmamasını sağlar*/
+}
+
+
+div.ara-bölüm {
+    /*buraya ara logo gibi bişeyler koyarız ilerleye n zamanlarda*/
+    height: 25%;
+    width: 100%;
+    background-color: transparent;
+}
+
+
+
+/*side bar*/
+.sidebar {
+    position: fixed;
+    left: -60px;
+    /* Başlangıçta görünüm dışı */
+    top: auto;
+    /* Yukarıdan konumlandırmayı kaldır */
+    bottom: 0;
+    /* Alt kısma yapıştır */
+    width: 80px;
+    /* Kapalı genişlik */
+    height: 75%;
+    /* Yükseklik ayarı */
+    background-color: rgba(173, 173, 173, 0.701);
+    color: rgb(168, 10, 10);
+    padding: 20px;
+    border-radius: 0px 10px 10px 0px;
+    transition: left 0.5s ease;
+    /* Geçiş efekti */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    /* Taşmayı engelle */
+    z-index: 1;
+
+}
+
+.sidebar:hover {
+    left: 0;
+    /* Fare ile üzerine gelince genişler */
+    width: 200px;
+    /* Açık genişlik */
+}
+
+
+div.baslik {
+    justify-content: center;
+    margin-top: 5%;
+    white-space: nowrap;
+    /* Metni tek satırda tut */
+    overflow: hidden;
+    /* Taşan metni gizle */
+    text-overflow: ellipsis;
+    /* Taşma durumunda üç nokta göster */
+
+}
+
+
+div.sidebar-item {
+    font-size: 1em;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Geçiş süresi ve tipi */
+    white-space: nowrap;
+    /* Metni tek satırda tut */
+    overflow: hidden;
+    /* Taşan metni gizle */
+    text-overflow: ellipsis;
+    /* Taşma durumunda üç nokta göster */
+    z-index: 3;
+}
+
+div.sidebar-item:hover {
+    transform: scale(1.1);
+    /* Üzerine gelince %10 büyüme */
+}
+
+.theme-link {
+    color: black;
+}
+
+
+div.sliding-windov {
+    width: 100%;
+    height: 80vh;
+    z-index: -1;
+}
+
+.carousel-item img {
+    width: 700px;
+    height: 450px;
+
+}
+
+
+
+div.icerik {
+    margin-top: 5%;
+    width: 100%;
+
+}
+
+/*cart kısmı*/
+
+.card-component,
+.card-component2 {
+    position: absolute;
+    top: 15%;
+    width: 20%;
+    z-index: 10;
+    background-color: rgba(110, 117, 117, 0.2);
+    right: 5%;
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    max-height: 0;
+    /* Başlangıçta gizli */
+    overflow: hidden;
+    /* Taşmayı engelle */
+    transition: max-height 1s ease, opacity 1s ease;
+    /* Geçiş efektleri */
+    opacity: 0;
+    /* Başlangıçta görünmez */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-component a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: x-large
+
+    
+}
+
+
+.card-component a:hover{
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+    background: linear-gradient(90deg, rgba(9,15,134,0.1) 0%, rgba(193,195,215,0.11537114845938379) 49%, rgba(9,15,134,0.10976890756302526) 100%);
+    backdrop-filter: blur(10px);
+    
+}
+
+
+.openAndClose {
+    opacity: 1;
+    /* Açıldığında görünür */
+}
+
+.card-item {
+    width: 100%;
+    height: 20%;
+}
+
+
+.card-component2 a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: x-large
+}
+
+.card-component2 a:hover{
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+    background: linear-gradient(90deg, rgba(9,15,134,0.1) 0%, rgba(193,195,215,0.11537114845938379) 49%, rgba(9,15,134,0.10976890756302526) 100%);
+    backdrop-filter: blur(10px);
+}
+
+
+.card-item,
+.card-item a {
+
+    font-size: 1em;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    /* Geçiş süresi ve tipi */
+    white-space: nowrap;
+    /* Metni tek satırda tut */
+    overflow: hidden;
+    /* Taşan metni gizle */
+    text-overflow: ellipsis;
+    /* Taşma durumunda üç nokta göster */
+    text-decoration: none;
+}
+
+
+
+.category-link {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.content-2 {
+    width: 90%;
+    max-height: 50%;
+    margin-top: 25%;
+    margin-bottom: 5%;
+    text-align: left;
+    z-index: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* Elemanların taşmasını önlemek için */
+
+}
+
+.açıklamalar {
+    width: 100%;
+    height: 300px;/* Yüksekliği otomatik ayarlayın */
+    text-align: left;
+    margin-top: 150px;
+    background-color: rgb(217, 255, 0);
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 5;
+    
+}
+
+
+.product-container {
+    width: 100%;
+    background-color: inherit;
+    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*içindeki etiketler sığmıyorsa bir alt satıra geçiren komut */
+
+
+
+}
+
+.card-img{
+    width: 100vh;
+    height: 30vh;
+
+}
+
+.img2{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.card-title {
+    width: 90%;
+    white-space: nowrap;
+    /* Tek satırda kalmasını sağlar */
+    overflow: hidden;
+    /* Taşan kısmı gizler */
+    text-overflow: ellipsis;
+    /* Taşan metnin sonuna ... ekler */
+    
+    padding: 5px;
+    /* İçerik için boşluk */
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+/***********************************************************/
+
+
+.card-product {
+    width: 300px;
+    height: 450px;
+    background-color: rgba(173, 173, 173, 0.5);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px #555;
+    padding: 16px;
+    
+}
+.card-product:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in;
+   
+}
+.card-product::after{
+    transition: all 0.5s ;
+}
+
+
+.card-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Tek satırda kalmasını sağlamak için */
+}
+
+.card-rating {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.basket-and-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    /* Fiyat rengi */
+}
+
+.add-to-basket {
+    background-color: #1ac7ad;
+    /* Buton rengi */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.7s;
+}
+
+.add-to-basket:hover {
+    background-color: #2980b9;
+
+    /* Hover durumu için renk değişimi */
+}
+
+.vitrin {
+    width: 100%;
+    
+    background-color: inherit;
+    gap: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*içindeki etiketler sığmıyorsa bir alt satıra geçiren komut */
+}
+
+.fa-solid{
+    font-size: 25px;
+}
+
+/*footer*/
+
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  .footer {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    padding: 30px 30px 20px 30px;
+    color: #2f2f2f;
+    background-color: rgb(255,255,255);
+    border-top: 1px solid #e5e5e5;
+    margin-top: 150px;
+    margin-bottom: -10px;
+    
+   
+   
+    
+  }
+  
+  .footer > * {
+    flex:  1 100%;
+  }
+  
+  .footer__addr {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+  }
+  
+  .footer__logo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+  }
+  
+  .footer__addr h2 {
+    margin-top: 1.3em;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  .nav__title {
+    font-weight: 400;
+    font-size: 15px;
+  }
+  
+  .footer address {
+    font-style: normal;
+    color: #999;
+  }
+  
+  .footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+  }
+  
+  .footer ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .footer li {
+    line-height: 2em;
+  }
+  
+  .footer a {
+    text-decoration: none;
+  }
+  
+  .footer__nav {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .footer__nav > * {
+    flex: 1 50%;
+    margin-right: 1.25em;
+  }
+  
+  .nav__ul a {
+    color: #999;
+  }
+  
+  .nav__ul--extra {
+    column-count: 2;
+    column-gap: 1.25em;
+  }
+  
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    color: #999;
+  }
+    
+  .legal__links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .heart {
+    color: #2f2f2f;
+  }
+  
+  @media screen and (min-width: 24.375em) {
+    .legal .legal__links {
+      margin-left: auto;
+    }
+  }
+  
+  @media screen and (min-width: 40.375em) {
+    .footer__nav > * {
+      flex: 1;
+    }
+    
+    .nav__item--extra {
+      flex-grow: 2;
+    }
+    
+    .footer__addr {
+      flex: 1 0px;
+    }
+    
+    .footer__nav {
+      flex: 2 0px;
+    }
+  }
+
+  .sig-in-box{
+    width:600px;
+    height: 700px;
+    background-color: rgba(110, 117, 117, 0.5);
+    position:relative;
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;/*yatay ortalama sağladı*/
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 10px rgb(85, 85, 85);
+  }
+
+  .e-mail-bar{
+    width: 80%;
+    height: 50px;
+    background-color: rgba(204, 204, 204,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:x-large;
+  }
+
+  .password-bar{
+    width: 80%;
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+   
+  }
+
+  .button-bar{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;  
+    background-color: transparent;  
+
+  }
+
+  .btn-primary{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+  }
+
+  .btn-secondary{
+    
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+   
+  }
+
+  .child{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(204, 204, 204,0.3);
+    
+  }
+
+  .child:last-child{
+    margin-top: 30px;
+  }
+  
+  label{
+    font-size:xx-large;
+    font-weight:bold;
+    
+  }
+
+
+
+  #btn-secondary-label{
+    font-size: large;
+    font-weight:bold;
+    margin-left: 250px;
+  }
+
+.header1{
+    margin-bottom: 100px;
+}
+#kayıt-header{
+    top: 0;
+    margin-top: 20px;
+    display:flex;
+    position: absolute;
+}
+#register-form{
+    display: none;
+
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between; /* Alanı eşit şekilde dağıtır */
+    margin-bottom: 15px; /* Alanlar arasında boşluk bırakır */
+}
+
+.name-field {
+    flex: 1; /* Her iki alanın da eşit genişlikte olmasını sağlar */
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-field:last-child {
+    margin-right: 0; /* Son elemana boşluk bırakmaz */
+}
+
